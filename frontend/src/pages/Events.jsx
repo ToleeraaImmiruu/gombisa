@@ -17,7 +17,7 @@ export default function Events() {
       <div className="mt-6 flex gap-2">
         {[[true, "Upcoming"], [false, "All events"]].map(([value, label]) => (
           <button key={label} onClick={() => setUpcoming(value)} aria-pressed={upcoming === value}
-            className={`rounded-full border px-4 py-1.5 text-sm font-semibold ${upcoming === value ? "border-forest bg-forest text-white" : "border-line bg-white"}`}>
+            className={`rounded-full border px-4 py-1.5 text-sm font-semibold ${upcoming === value ? "border-flame bg-flame text-white" : "border-line bg-white"}`}>
             {label}
           </button>
         ))}

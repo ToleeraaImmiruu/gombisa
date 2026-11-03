@@ -10,7 +10,7 @@ export function ProductImage({ product, name, className = "" }) {
     <img src={product.image_url} alt={name} loading="lazy" className={`h-full w-full object-cover ${className}`} />
   ) : (
     <div className="weave-soft flex h-full w-full items-center justify-center" aria-hidden="true">
-      <span className="font-display text-6xl font-extrabold text-forest/60">{name.charAt(0)}</span>
+      <span className="font-display text-6xl font-extrabold text-flame/60">{name.charAt(0)}</span>
     </div>
   );
 }
@@ -37,7 +37,7 @@ export default function ProductCard({ product }) {
         <ProductImage product={product} name={name} className="transition-transform duration-300 group-hover:scale-[1.03]" />
       </Link>
       <div className="flex flex-1 flex-col gap-1 p-4">
-        <Link to={`/product/${product.slug}`} className="font-medium leading-snug hover:text-forest">{name}</Link>
+        <Link to={`/product/${product.slug}`} className="font-medium leading-snug hover:text-flame">{name}</Link>
         <p className="font-display text-lg font-bold">{formatPrice(product.price_cents)}</p>
         <button onClick={add} disabled={soldOut} className="btn btn-ghost mt-3 w-full" aria-live="polite">
           {soldOut ? "Sold out" : added ? "Added to cart" : "Add to cart"}

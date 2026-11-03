@@ -13,7 +13,7 @@ export default function GameDetail() {
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-10">
-      <Link to="/games" className="text-sm text-forest hover:underline">All games</Link>
+      <Link to="/games" className="text-sm text-flame hover:underline">All games</Link>
       <h1 className="mt-2 font-display text-4xl font-extrabold">{L(game, "name")}</h1>
       {game.summary && <p className="mt-3 text-xl text-ink/80">{game.summary}</p>}
       {game.image_url && <img src={game.image_url} alt="" className="mt-6 w-full rounded-2xl" />}

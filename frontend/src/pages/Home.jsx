@@ -18,7 +18,7 @@ function SectionHead({ title, to, linkText }) {
   return (
     <div className="mb-6 flex items-end justify-between gap-4">
       <h2 className="font-display text-3xl font-extrabold">{title}</h2>
-      {to && <Link to={to} className="font-semibold text-forest hover:underline">{linkText}</Link>}
+      {to && <Link to={to} className="font-semibold text-flame hover:underline">{linkText}</Link>}
     </div>
   );
 }
@@ -32,7 +32,7 @@ export default function Home() {
     <>
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 lg:grid-cols-[1.15fr_1fr] lg:py-20">
         <div>
-          <h1 className="font-display text-7xl font-extrabold leading-[0.9] tracking-tight text-forest sm:text-8xl lg:text-9xl">
+          <h1 className="font-display text-7xl font-extrabold leading-[0.9] tracking-tight text-flame sm:text-8xl lg:text-9xl">
             Gombisa
           </h1>
           <p className="mt-6 max-w-lg text-xl leading-relaxed text-ink/80">
@@ -45,10 +45,10 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-2 gap-3">
-          <Tile to="/shop?section=clothes" title={t("section_clothes")} sub="Dresses, shawls, jewelry" className="bg-forest text-white" />
-          <Tile to="/shop?section=food" title={t("section_food")} sub="Coffee, spices, ready foods" className="bg-flame text-white" />
-          <Tile to="/games" title={t("section_games")} sub="Learn and play" className="bg-ink text-white" />
-          <Tile to="/events" title={t("section_events")} sub="Festivals and gatherings" className="border border-line bg-mist text-ink" />
+          <Tile to="/shop?section=clothes" title={t("section_clothes")} sub="Dresses, shawls, jewelry" className="bg-flame text-white" />
+          <Tile to="/shop?section=food" title={t("section_food")} sub="Coffee, spices, ready foods" className="bg-ink text-white" />
+          <Tile to="/games" title={t("section_games")} sub="Learn and play" className="border-2 border-ink bg-white text-ink" />
+          <Tile to="/events" title={t("section_events")} sub="Festivals and gatherings" className="bg-flame-deep text-white" />
         </div>
       </section>
 
@@ -71,12 +71,12 @@ export default function Home() {
       </section>
 
       <section className="mx-auto mt-16 max-w-6xl px-4">
-        <div className="rounded-2xl bg-forest px-6 py-12 text-white md:px-12">
+        <div className="rounded-2xl bg-ink px-6 py-12 text-white md:px-12">
           <h2 className="font-display text-3xl font-extrabold">Made by the community</h2>
           <p className="mt-3 max-w-2xl text-lg text-white/85">
             Every garment, food and game on Gombisa comes with its story and the name of the person who made it.
           </p>
-          <Link to="/about" className="btn mt-6 bg-white text-forest hover:bg-mist">About Gombisa</Link>
+          <Link to="/about" className="btn mt-6 bg-white text-ink hover:bg-mist">About Gombisa</Link>
         </div>
       </section>
     </>

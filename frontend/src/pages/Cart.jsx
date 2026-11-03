@@ -56,7 +56,7 @@ export default function Cart() {
             <div key={i.id} className="flex items-center gap-4 rounded-xl border border-line bg-white p-3">
               <div className="h-20 w-20 shrink-0 overflow-hidden rounded-lg bg-mist"><ProductImage product={i} name={i.name} /></div>
               <div className="min-w-0 flex-1">
-                <Link to={`/product/${i.slug}`} className="font-medium hover:text-forest">{i.name}</Link>
+                <Link to={`/product/${i.slug}`} className="font-medium hover:text-flame">{i.name}</Link>
                 <p className="text-sm text-ink/60">{formatPrice(i.price_cents)}</p>
                 <button onClick={() => dispatch(removeFromCart(i.id))} className="mt-1 text-sm text-flame hover:underline">Remove</button>
               </div>

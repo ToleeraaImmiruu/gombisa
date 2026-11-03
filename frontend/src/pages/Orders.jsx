@@ -4,8 +4,8 @@ import { formatPrice, formatDate } from "../lib/format";
 import { Loading, EmptyState } from "../components/ui/States";
 
 const badge = {
-  paid: "bg-forest/10 text-forest", pending: "bg-ink/10 text-ink", failed: "bg-flame/10 text-flame",
-  cancelled: "bg-flame/10 text-flame", shipped: "bg-forest/10 text-forest", delivered: "bg-forest/10 text-forest",
+  paid: "bg-ink text-white", pending: "bg-ink/10 text-ink", failed: "bg-flame/10 text-flame",
+  cancelled: "bg-flame/10 text-flame", shipped: "bg-ink text-white", delivered: "bg-ink text-white",
 };
 
 export default function Orders() {

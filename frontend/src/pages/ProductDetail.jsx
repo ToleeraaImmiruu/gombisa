@@ -44,7 +44,7 @@ export default function ProductDetail() {
       </div>
 
       <div>
-        <Link to="/shop" className="text-sm text-forest hover:underline">Back to shop</Link>
+        <Link to="/shop" className="text-sm text-flame hover:underline">Back to shop</Link>
         <h1 className="mt-2 font-display text-4xl font-extrabold leading-tight">{name}</h1>
         {product.categories && <p className="mt-1 text-ink/60">{L(product.categories, "name")}</p>}
         <p className="mt-4 font-display text-3xl font-bold">{formatPrice(product.price_cents)}</p>

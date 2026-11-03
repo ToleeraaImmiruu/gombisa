@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
+/* Gadaa colours: black (gurraacha), red (diimaa), white (adii) */
 @theme {
   --color-ink: #17140f;
-  --color-forest: #0d5b37;
-  --color-forest-deep: #083a24;
   --color-flame: #c4202e;
-  --color-paper: #fbfbf8;
-  --color-mist: #eef0ea;
-  --color-line: #d9dcd2;
+  --color-flame-deep: #8f1520;
+  --color-paper: #ffffff;
+  --color-mist: #f3f1ee;
+  --color-line: #dcd8d3;
   --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
   --font-sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
@@ -21,22 +21,22 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Woven band: the one signature motif, drawn as textile-style stripes */
+/* Woven band: black, red and white stripes, like the Abbaa Gadaa garment */
 .weave {
   height: 8px;
   background: repeating-linear-gradient(
     90deg,
-    var(--color-forest) 0 28px,
-    var(--color-paper) 28px 34px,
-    var(--color-flame) 34px 62px,
-    var(--color-ink) 62px 68px
+    var(--color-ink) 0 22px,
+    var(--color-paper) 22px 28px,
+    var(--color-flame) 28px 56px,
+    var(--color-paper) 56px 62px
   );
 }
 .weave-thick { height: 22px; }
 
 .weave-soft {
   background:
-    repeating-linear-gradient(90deg, rgba(13,91,55,.14) 0 14px, transparent 14px 28px),
+    repeating-linear-gradient(90deg, rgba(23,20,15,.10) 0 14px, transparent 14px 28px),
     repeating-linear-gradient(0deg, rgba(196,32,46,.12) 0 14px, transparent 14px 28px),
     var(--color-mist);
 }
@@ -53,7 +53,7 @@ body {
   padding: 0.65rem 0.8rem;
   border-radius: 0.5rem;
 }
-.field:focus { border-color: var(--color-forest); outline: 2px solid var(--color-forest); outline-offset: 0; }
+.field:focus { border-color: var(--color-flame); outline: 2px solid var(--color-flame); outline-offset: 0; }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -62,8 +62,8 @@ body {
   cursor: pointer;
 }
 .btn:disabled { opacity: .5; cursor: not-allowed; }
-.btn-primary { background: var(--color-forest); color: #fff; }
-.btn-primary:hover:not(:disabled) { background: var(--color-forest-deep); }
+.btn-primary { background: var(--color-flame); color: #fff; }
+.btn-primary:hover:not(:disabled) { background: var(--color-flame-deep); }
 .btn-ghost { border: 1.5px solid var(--color-ink); }
 .btn-ghost:hover:not(:disabled) { background: var(--color-ink); color: #fff; }
 

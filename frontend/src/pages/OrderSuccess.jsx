@@ -45,7 +45,7 @@ export default function OrderSuccess() {
         </>
       ) : status === "paid" ? (
         <>
-          <h1 className="font-display text-4xl font-extrabold text-forest">Thank you, your order is paid</h1>
+          <h1 className="font-display text-4xl font-extrabold">Thank you, your order is paid</h1>
           <p className="mt-3 text-ink/70">Order total {formatPrice(order.amount_total)}. We will contact you about delivery.</p>
           <ul className="mx-auto mt-6 max-w-sm divide-y divide-line rounded-xl border border-line bg-white text-left">
             {order.order_items.map((i, n) => (
@@ -65,7 +65,7 @@ export default function OrderSuccess() {
           <Link to="/cart" className="btn btn-primary mt-6">Back to cart</Link>
         </>
       )}
-      <p className="mt-8"><Link to="/orders" className="font-semibold text-forest hover:underline">View my orders</Link></p>
+      <p className="mt-8"><Link to="/orders" className="font-semibold text-flame hover:underline">View my orders</Link></p>
     </div>
   );
 }

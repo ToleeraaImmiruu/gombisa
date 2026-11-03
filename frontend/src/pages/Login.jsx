@@ -31,7 +31,7 @@ export default function Login() {
         <ErrorNote>{error}</ErrorNote>
         <button className="btn btn-primary w-full" disabled={busy}>{busy ? "Logging in..." : "Log in"}</button>
       </form>
-      <p className="mt-6 text-sm">New to Gombisa? <Link to="/register" state={location.state} className="font-semibold text-forest hover:underline">Create an account</Link></p>
+      <p className="mt-6 text-sm">New to Gombisa? <Link to="/register" state={location.state} className="font-semibold text-flame hover:underline">Create an account</Link></p>
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default function Header() {
     <header className="sticky top-0 z-20 bg-paper/95 backdrop-blur">
       <div className="weave" aria-hidden="true" />
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-3">
-        <Link to="/" className="font-display text-3xl font-extrabold tracking-tight text-forest">Gombisa</Link>
+        <Link to="/" className="font-display text-3xl font-extrabold tracking-tight text-flame">Gombisa</Link>
 
         <nav className="order-3 flex w-full gap-6 overflow-x-auto text-sm font-medium md:order-none md:w-auto" aria-label="Main">
           <NavLink to="/shop" className={link}>{t("nav_shop")}</NavLink>
@@ -47,10 +47,10 @@ export default function Header() {
             <Link to="/login" className="hover:underline">{t("nav_login")}</Link>
           )}
 
-          <Link to="/cart" className="relative rounded-md bg-forest px-3 py-1.5 font-semibold text-white hover:bg-forest-deep">
+          <Link to="/cart" className="relative rounded-md bg-flame px-3 py-1.5 font-semibold text-white hover:bg-flame-deep">
             {t("nav_cart")}
             {count > 0 && (
-              <span className="ml-2 rounded-full bg-white px-1.5 py-0.5 text-xs font-bold text-forest">{count}</span>
+              <span className="ml-2 rounded-full bg-white px-1.5 py-0.5 text-xs font-bold text-flame">{count}</span>
             )}
           </Link>
         </div>
