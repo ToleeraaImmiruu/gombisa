@@ -5,7 +5,7 @@ export default function About() {
   return (
     <>
       <section className="relative isolate overflow-hidden bg-night text-white">
-        <BackgroundImage sources={siteImages.about} position="50% 60%" hint="frontend/public/images/about.jpg" />
+        <BackgroundImage sources={siteImages.about} position="50% 75%" hint="frontend/public/images/slide-1.jpg" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, rgba(10,8,6,.85), rgba(10,8,6,.45))" }} aria-hidden="true" />
         <div className="relative mx-auto max-w-3xl px-4 pb-20 pt-24">
           <h1 className="font-display text-5xl font-extrabold sm:text-6xl">About Gombisa</h1>

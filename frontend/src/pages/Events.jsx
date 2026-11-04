@@ -4,6 +4,7 @@ import EventCard from "../components/content/EventCard";
 import { Loading, EmptyState } from "../components/ui/States";
 import { useT } from "../lib/i18n";
 import PageHeader from "../components/ui/PageHeader";
+import { siteImages } from "../lib/siteImages";
 
 export default function Events() {
   const t = useT();
@@ -12,7 +13,7 @@ export default function Events() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
-      <PageHeader oromo="Ayyaanota" title={t("section_events")} text="Festivals, markets and gatherings from across the Oromo community." />
+      <PageHeader oromo="Ayyaanota" title={t("section_events")} text="Festivals, markets and gatherings from across the Oromo community." image={siteImages.events} position="50% 55%" />
 
       <div className="mt-6 flex gap-2">
         {[[true, "Upcoming"], [false, "All events"]].map(([value, label]) => (

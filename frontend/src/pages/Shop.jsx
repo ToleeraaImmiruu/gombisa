@@ -5,6 +5,7 @@ import ProductGrid from "../components/product/ProductGrid";
 import { Loading, EmptyState, ErrorNote } from "../components/ui/States";
 import { useT } from "../lib/i18n";
 import PageHeader from "../components/ui/PageHeader";
+import { siteImages } from "../lib/siteImages";
 
 export default function Shop() {
   const t = useT();
@@ -23,7 +24,7 @@ export default function Shop() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <PageHeader oromo="Gabaa" title="Shop" text="Clothes, food and game sets from the community." />
+      <PageHeader oromo="Gabaa" title="Shop" text="Clothes, food and game sets from the community." image={siteImages.shop} position="50% 85%" />
 
       <div className="mt-6 flex flex-wrap items-center gap-2" role="tablist" aria-label="Sections">
         {tabs.map(([value, label]) => (
