@@ -3,6 +3,7 @@ import { useEvents } from "../hooks/useContent";
 import EventCard from "../components/content/EventCard";
 import { Loading, EmptyState } from "../components/ui/States";
 import { useT } from "../lib/i18n";
+import PageHeader from "../components/ui/PageHeader";
 
 export default function Events() {
   const t = useT();
@@ -11,8 +12,7 @@ export default function Events() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
-      <h1 className="font-display text-4xl font-extrabold">{t("section_events")}</h1>
-      <p className="mt-2 max-w-prose text-ink/70">Festivals, markets and gatherings from across the Oromo community.</p>
+      <PageHeader oromo="Ayyaanota" title={t("section_events")} text="Festivals, markets and gatherings from across the Oromo community." />
 
       <div className="mt-6 flex gap-2">
         {[[true, "Upcoming"], [false, "All events"]].map(([value, label]) => (
