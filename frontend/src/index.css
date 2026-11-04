@@ -2,15 +2,32 @@
 
 /* Gadaa colours: black (gurraacha), red (diimaa), white (adii) */
 @theme {
-  --color-ink: #17140f;
-  --color-flame: #c4202e;
-  --color-flame-deep: #8f1520;
-  --color-paper: #ffffff;
-  --color-mist: #f3f1ee;
-  --color-line: #dcd8d3;
+  --color-ink: #17140f;        /* main text */
+  --color-paper: #ffffff;      /* page background */
+  --color-surface: #ffffff;    /* cards, inputs */
+  --color-mist: #f3f1ee;       /* soft panels */
+  --color-line: #dcd8d3;       /* borders */
+  --color-night: #17140f;      /* always-dark blocks (footer, black tiles) */
+  --color-flame: #c4202e;      /* red fills: buttons, tiles */
+  --color-flame-deep: #8f1520; /* darker red: hover, tiles */
+  --color-accent: #c4202e;     /* red used for text and links */
   --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
   --font-sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
+
+/* Night mode: only the variables change, so no component needs to know */
+html.dark {
+  color-scheme: dark;
+  --color-ink: #f3efe9;
+  --color-paper: #12100d;
+  --color-surface: #1b1814;
+  --color-mist: #25211c;
+  --color-line: #3b3630;
+  --color-night: #221e19;
+  --color-flame: #d92b3a;
+  --color-accent: #f0707a;
+}
+html { color-scheme: light; }
 
 html { scroll-behavior: smooth; }
 
@@ -19,40 +36,43 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  transition: background-color .2s, color .2s;
 }
 
-/* Woven band: black, red and white stripes, like the Abbaa Gadaa garment */
+/* Woven band: true Gadaa colours in both modes, like the Abbaa Gadaa garment */
 .weave {
   height: 8px;
   background: repeating-linear-gradient(
     90deg,
-    var(--color-ink) 0 22px,
-    var(--color-paper) 22px 28px,
-    var(--color-flame) 28px 56px,
-    var(--color-paper) 56px 62px
+    #17140f 0 22px,
+    #ffffff 22px 28px,
+    #c4202e 28px 56px,
+    #ffffff 56px 62px
   );
 }
 .weave-thick { height: 22px; }
 
 .weave-soft {
   background:
-    repeating-linear-gradient(90deg, rgba(23,20,15,.10) 0 14px, transparent 14px 28px),
-    repeating-linear-gradient(0deg, rgba(196,32,46,.12) 0 14px, transparent 14px 28px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--color-ink) 10%, transparent) 0 14px, transparent 14px 28px),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--color-flame) 14%, transparent) 0 14px, transparent 14px 28px),
     var(--color-mist);
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-flame);
+  outline: 3px solid var(--color-accent);
   outline-offset: 2px;
 }
 
 .field {
   width: 100%;
   border: 1px solid var(--color-line);
-  background: #fff;
+  background: var(--color-surface);
+  color: var(--color-ink);
   padding: 0.65rem 0.8rem;
   border-radius: 0.5rem;
 }
+.field::placeholder { color: color-mix(in srgb, var(--color-ink) 50%, transparent); }
 .field:focus { border-color: var(--color-flame); outline: 2px solid var(--color-flame); outline-offset: 0; }
 
 .btn {
@@ -65,7 +85,7 @@ body {
 .btn-primary { background: var(--color-flame); color: #fff; }
 .btn-primary:hover:not(:disabled) { background: var(--color-flame-deep); }
 .btn-ghost { border: 1.5px solid var(--color-ink); }
-.btn-ghost:hover:not(:disabled) { background: var(--color-ink); color: #fff; }
+.btn-ghost:hover:not(:disabled) { background: var(--color-ink); color: var(--color-paper); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

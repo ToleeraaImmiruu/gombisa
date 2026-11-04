@@ -28,7 +28,7 @@ export default function Shop() {
         {tabs.map(([value, label]) => (
           <button key={value || "all"} role="tab" aria-selected={section === value}
             onClick={() => (value ? setParams({ section: value }) : setParams({}))}
-            className={`rounded-full border px-4 py-1.5 text-sm font-semibold ${section === value ? "border-forest bg-forest text-white" : "border-line bg-white hover:border-forest"}`}>
+            className={`rounded-full border px-4 py-1.5 text-sm font-semibold ${section === value ? "border-flame bg-flame text-white" : "border-line bg-surface hover:border-flame"}`}>
             {label}
           </button>
         ))}

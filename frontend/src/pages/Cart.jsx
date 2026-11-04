@@ -53,12 +53,12 @@ export default function Cart() {
       <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_380px]">
         <div className="space-y-3">
           {items.map((i) => (
-            <div key={i.id} className="flex items-center gap-4 rounded-xl border border-line bg-white p-3">
+            <div key={i.id} className="flex items-center gap-4 rounded-xl border border-line bg-surface p-3">
               <div className="h-20 w-20 shrink-0 overflow-hidden rounded-lg bg-mist"><ProductImage product={i} name={i.name} /></div>
               <div className="min-w-0 flex-1">
-                <Link to={`/product/${i.slug}`} className="font-medium hover:text-flame">{i.name}</Link>
+                <Link to={`/product/${i.slug}`} className="font-medium hover:text-accent">{i.name}</Link>
                 <p className="text-sm text-ink/60">{formatPrice(i.price_cents)}</p>
-                <button onClick={() => dispatch(removeFromCart(i.id))} className="mt-1 text-sm text-flame hover:underline">Remove</button>
+                <button onClick={() => dispatch(removeFromCart(i.id))} className="mt-1 text-sm text-accent hover:underline">Remove</button>
               </div>
               <div className="flex items-center rounded-lg border border-line">
                 <button className="h-9 w-9" aria-label={`Decrease ${i.name}`} onClick={() => dispatch(setQuantity({ id: i.id, quantity: i.quantity - 1 }))}>-</button>
@@ -71,7 +71,7 @@ export default function Cart() {
           <button onClick={() => dispatch(clearCart())} className="text-sm text-ink/60 underline">Clear cart</button>
         </div>
 
-        <form onSubmit={checkout} className="h-fit space-y-4 rounded-2xl border border-line bg-white p-6">
+        <form onSubmit={checkout} className="h-fit space-y-4 rounded-2xl border border-line bg-surface p-6">
           <h2 className="font-display text-xl font-bold">Delivery details</h2>
           <label className="block text-sm font-medium">Full name
             <input className="field mt-1" required value={form.name} onChange={set("name")} autoComplete="name" /></label>

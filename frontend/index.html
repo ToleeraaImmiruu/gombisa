@@ -8,6 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script>
+      try {
+        var saved = JSON.parse(localStorage.getItem("persist:gombisa") || "{}");
+        var mode = saved.theme ? JSON.parse(saved.theme).mode : null;
+        var dark = mode ? mode === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+      } catch (e) {}
+    </script>
     <title>Gombisa</title>
   </head>
   <body>

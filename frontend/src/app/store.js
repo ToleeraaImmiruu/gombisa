@@ -4,11 +4,12 @@ import storage from "redux-persist/lib/storage";
 import cart from "../features/cart/cartSlice";
 import auth from "../features/auth/authSlice";
 import language from "../features/language/languageSlice";
+import theme from "../features/theme/themeSlice";
 
-const rootReducer = combineReducers({ cart, auth, language });
+const rootReducer = combineReducers({ cart, auth, language, theme });
 
-// Only the cart and the language survive a page refresh. Login is handled by Supabase.
-const persisted = persistReducer({ key: "gombisa", storage, whitelist: ["cart", "language"] }, rootReducer);
+// Only the cart, language and theme survive a page refresh. Login is handled by Supabase.
+const persisted = persistReducer({ key: "gombisa", storage, whitelist: ["cart", "language", "theme"] }, rootReducer);
 
 export const store = configureStore({
   reducer: persisted,

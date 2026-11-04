@@ -47,7 +47,7 @@ export default function OrderSuccess() {
         <>
           <h1 className="font-display text-4xl font-extrabold">Thank you, your order is paid</h1>
           <p className="mt-3 text-ink/70">Order total {formatPrice(order.amount_total)}. We will contact you about delivery.</p>
-          <ul className="mx-auto mt-6 max-w-sm divide-y divide-line rounded-xl border border-line bg-white text-left">
+          <ul className="mx-auto mt-6 max-w-sm divide-y divide-line rounded-xl border border-line bg-surface text-left">
             {order.order_items.map((i, n) => (
               <li key={n} className="flex justify-between px-4 py-2"><span>{i.name} x {i.quantity}</span><span>{formatPrice(i.price_cents * i.quantity)}</span></li>
             ))}
@@ -60,12 +60,12 @@ export default function OrderSuccess() {
         </>
       ) : (
         <>
-          <h1 className="font-display text-3xl font-extrabold text-flame">The payment did not go through</h1>
+          <h1 className="font-display text-3xl font-extrabold text-accent">The payment did not go through</h1>
           <p className="mt-3 text-ink/70">You have not been charged for this order. Your cart is still saved, so you can try again.</p>
           <Link to="/cart" className="btn btn-primary mt-6">Back to cart</Link>
         </>
       )}
-      <p className="mt-8"><Link to="/orders" className="font-semibold text-flame hover:underline">View my orders</Link></p>
+      <p className="mt-8"><Link to="/orders" className="font-semibold text-accent hover:underline">View my orders</Link></p>
     </div>
   );
 }

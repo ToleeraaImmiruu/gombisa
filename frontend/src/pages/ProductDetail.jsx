@@ -44,7 +44,7 @@ export default function ProductDetail() {
       </div>
 
       <div>
-        <Link to="/shop" className="text-sm text-flame hover:underline">Back to shop</Link>
+        <Link to="/shop" className="text-sm text-accent hover:underline">Back to shop</Link>
         <h1 className="mt-2 font-display text-4xl font-extrabold leading-tight">{name}</h1>
         {product.categories && <p className="mt-1 text-ink/60">{L(product.categories, "name")}</p>}
         <p className="mt-4 font-display text-3xl font-bold">{formatPrice(product.price_cents)}</p>
@@ -65,7 +65,7 @@ export default function ProductDetail() {
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
           {!soldOut && (
-            <div className="flex items-center rounded-lg border border-line bg-white">
+            <div className="flex items-center rounded-lg border border-line bg-surface">
               <button className="h-11 w-11 text-xl" onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease quantity">-</button>
               <span className="w-8 text-center font-semibold" aria-live="polite">{qty}</span>
               <button className="h-11 w-11 text-xl" onClick={() => setQty((q) => Math.min(maxQty, q + 1))} aria-label="Increase quantity">+</button>
@@ -76,7 +76,7 @@ export default function ProductDetail() {
           </button>
           <Link to="/cart" className="btn btn-ghost">View cart</Link>
         </div>
-        {!soldOut && product.stock <= 5 && <p className="mt-3 text-sm text-flame">Only {product.stock} left</p>}
+        {!soldOut && product.stock <= 5 && <p className="mt-3 text-sm text-accent">Only {product.stock} left</p>}
       </div>
     </div>
   );

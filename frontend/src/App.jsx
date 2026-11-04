@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { useAuthListener } from "./hooks/useAuth";
+import { useThemeEffect } from "./hooks/useTheme";
 import Layout from "./components/layout/Layout";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Home from "./pages/Home";
@@ -19,6 +20,7 @@ import NotFound from "./pages/NotFound";
 
 export default function App() {
   useAuthListener();
+  useThemeEffect();
 
   return (
     <Routes>

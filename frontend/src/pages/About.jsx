@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="font-display text-5xl font-extrabold text-flame">About Gombisa</h1>
+      <h1 className="font-display text-5xl font-extrabold text-accent">About Gombisa</h1>
       <div className="mt-6 space-y-5 text-lg leading-relaxed">
         <p>Gombisa brings Oromo clothing, food, traditional games and cultural events into one place, so they are easy to find, learn about and share.</p>
         <p>Each product page tells the story behind the item and credits the person who made it. Games come with their rules and history. Events are listed so the community can gather.</p>

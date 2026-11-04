@@ -11,7 +11,7 @@ export function Loading({ label = "Loading..." }) {
 
 export function EmptyState({ title, text, to, action }) {
   return (
-    <div className="rounded-xl border border-dashed border-line bg-white px-6 py-14 text-center">
+    <div className="rounded-xl border border-dashed border-line bg-surface px-6 py-14 text-center">
       <p className="font-display text-xl font-bold">{title}</p>
       {text && <p className="mx-auto mt-2 max-w-md text-ink/70">{text}</p>}
       {to && <Link to={to} className="btn btn-primary mt-6">{action}</Link>}
@@ -21,5 +21,5 @@ export function EmptyState({ title, text, to, action }) {
 
 export function ErrorNote({ children }) {
   if (!children) return null;
-  return <p role="alert" className="rounded-lg border border-flame/40 bg-flame/5 px-4 py-3 text-flame">{children}</p>;
+  return <p role="alert" className="rounded-lg border border-flame/40 bg-flame/5 px-4 py-3 text-accent">{children}</p>;
 }

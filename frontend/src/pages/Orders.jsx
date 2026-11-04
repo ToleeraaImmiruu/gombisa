@@ -4,8 +4,8 @@ import { formatPrice, formatDate } from "../lib/format";
 import { Loading, EmptyState } from "../components/ui/States";
 
 const badge = {
-  paid: "bg-ink text-white", pending: "bg-ink/10 text-ink", failed: "bg-flame/10 text-flame",
-  cancelled: "bg-flame/10 text-flame", shipped: "bg-ink text-white", delivered: "bg-ink text-white",
+  paid: "bg-ink text-paper", pending: "bg-ink/10 text-ink", failed: "bg-flame/10 text-accent",
+  cancelled: "bg-flame/10 text-accent", shipped: "bg-ink text-paper", delivered: "bg-ink text-paper",
 };
 
 export default function Orders() {
@@ -26,7 +26,7 @@ export default function Orders() {
         {loading ? <Loading />
           : orders.length === 0 ? <EmptyState title="No orders yet" text="Your orders will show up here after you check out." to="/shop" action="Start shopping" />
           : orders.map((o) => (
-            <div key={o.id} className="rounded-xl border border-line bg-white p-4">
+            <div key={o.id} className="rounded-xl border border-line bg-surface p-4">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <p className="text-sm text-ink/60">{formatDate(o.created_at)}</p>
                 <span className={`rounded-full px-3 py-0.5 text-sm font-semibold capitalize ${badge[o.status] || ""}`}>{o.status}</span>

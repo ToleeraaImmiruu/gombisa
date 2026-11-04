@@ -41,7 +41,7 @@ export default function Register() {
         {notice && <p role="status" className="rounded-lg border border-ink/30 bg-mist px-4 py-3 text-ink">{notice}</p>}
         <button className="btn btn-primary w-full" disabled={busy}>{busy ? "Creating account..." : "Create account"}</button>
       </form>
-      <p className="mt-6 text-sm">Already have an account? <Link to="/login" state={location.state} className="font-semibold text-flame hover:underline">Log in</Link></p>
+      <p className="mt-6 text-sm">Already have an account? <Link to="/login" state={location.state} className="font-semibold text-accent hover:underline">Log in</Link></p>
     </div>
   );
 }
