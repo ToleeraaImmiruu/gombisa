@@ -2,7 +2,7 @@
 create table public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
   full_name text,
-  phone text,
+  email text,
   role text not null default 'customer' check (role in ('customer', 'admin')),
   created_at timestamptz not null default now()
 );
@@ -15,9 +15,9 @@ create policy "users read own profile" on public.profiles
 create policy "users update own profile" on public.profiles
   for update to authenticated using (auth.uid() = id) with check (auth.uid() = id);
 
--- Users may change ONLY name and phone, never their own role
+-- Users may change ONLY their name, never their email copy or role
 revoke update on public.profiles from authenticated;
-grant update (full_name, phone) on public.profiles to authenticated;
+grant update (full_name) on public.profiles to authenticated;
 
 -- Create a profile automatically when someone signs up
 create or replace function public.handle_new_user()
@@ -27,8 +27,8 @@ security definer
 set search_path = public
 as $$
 begin
-  insert into public.profiles (id, full_name)
-  values (new.id, new.raw_user_meta_data ->> 'full_name');
+  insert into public.profiles (id, full_name, email)
+  values (new.id, new.raw_user_meta_data ->> 'full_name', new.email);
   return new;
 end;
 $$;
