@@ -8,6 +8,9 @@ module.exports = async function requireAuth(req, res, next) {
   if (error || !data?.user) {
     return res.status(401).json({ error: "Your session has expired. Please log in again." });
   }
+  const banned = data.user.banned_until && new Date(data.user.banned_until) > new Date();
+  if (banned) return res.status(403).json({ error: "This account has been suspended." });
+
   req.user = data.user;
   next();
 };

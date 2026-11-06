@@ -14,6 +14,7 @@ export default function Header() {
   const dispatch = useDispatch();
   const count = useSelector(selectCartCount);
   const user = useSelector((s) => s.auth.user);
+  const role = useSelector((s) => s.auth.role);
   const lang = useSelector((s) => s.language.lang);
 
   return (
@@ -43,7 +44,10 @@ export default function Header() {
 
           {user ? (
             <>
+              <Link to="/profile" className="hidden hover:underline sm:inline">Profile</Link>
               <Link to="/orders" className="hidden hover:underline sm:inline">{t("nav_orders")}</Link>
+              <Link to="/dashboard" className="hidden hover:underline md:inline">My posts</Link>
+              {role === "admin" && <Link to="/admin" className="hidden font-semibold text-accent hover:underline md:inline">Admin</Link>}
               <button onClick={() => supabase.auth.signOut()} className="hover:underline">{t("nav_logout")}</button>
             </>
           ) : (

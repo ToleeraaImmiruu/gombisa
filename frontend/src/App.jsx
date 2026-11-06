@@ -17,6 +17,9 @@ import Register from "./pages/Register";
 import OrderSuccess from "./pages/OrderSuccess";
 import Orders from "./pages/Orders";
 import NotFound from "./pages/NotFound";
+import Dashboard from "./pages/Dashboard";
+import Admin from "./pages/Admin";
+import Profile from "./pages/Profile";
 
 export default function App() {
   useAuthListener();
@@ -38,6 +41,9 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/order-success" element={<ProtectedRoute><OrderSuccess /></ProtectedRoute>} />
         <Route path="/orders" element={<ProtectedRoute><Orders /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/admin" element={<ProtectedRoute roles={["admin"]}><Admin /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

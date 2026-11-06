@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setQuantity, removeFromCart, clearCart, selectSubtotal } from "../features/cart/cartSlice";
 import { api } from "../lib/api";
+import { supabase } from "../lib/supabaseClient";
 import { formatPrice } from "../lib/format";
 import { ProductImage } from "../components/product/ProductCard";
 import { EmptyState, ErrorNote } from "../components/ui/States";
@@ -18,6 +19,14 @@ export default function Cart() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  // Use the phone number saved in the profile, so people do not retype it
+  useEffect(() => {
+    if (!user) return;
+    supabase.from("profiles").select("phone, full_name").eq("id", user.id).maybeSingle().then(({ data }) => {
+      if (data) setForm((f) => ({ ...f, phone: f.phone || data.phone || "", name: f.name || data.full_name || "" }));
+    });
+  }, [user]);
 
   if (items.length === 0) {
     return (

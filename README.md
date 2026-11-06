@@ -7,7 +7,8 @@ Oromo clothing, food, traditional games and cultural events, with a shop.
 ## Run it
 
 1. **Supabase:** create a project. In the SQL Editor run, in order:
-   `supabase/migrations/001` to `005`, then `supabase/seed.sql`.
+   `supabase/migrations/001` to `006`, then `supabase/seed.sql`.
+   (006 adds roles: customer, contributor, admin. See `docs/roles.md`.)
    Copy the Project URL, the anon key and the service_role key (Project Settings, API).
 2. **Frontend:**
    ```bash

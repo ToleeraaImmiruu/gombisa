@@ -5,6 +5,9 @@ const rateLimit = require("express-rate-limit");
 const env = require("./config/env");
 const webhookRoutes = require("./routes/webhook.routes");
 const checkoutRoutes = require("./routes/checkout.routes");
+const adminRoutes = require("./routes/admin.routes");
+const requireAuth = require("./middleware/requireAuth");
+const requireAdmin = require("./middleware/requireAdmin");
 const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
@@ -18,6 +21,7 @@ app.use("/webhook", webhookRoutes);
 app.use(express.json({ limit: "100kb" }));
 app.use("/api", rateLimit({ windowMs: 15 * 60 * 1000, limit: 100 }));
 app.use("/api/checkout", checkoutRoutes);
+app.use("/api/admin", requireAuth, requireAdmin, adminRoutes); // admins only
 
 app.get("/health", (_req, res) => res.send("ok"));
 

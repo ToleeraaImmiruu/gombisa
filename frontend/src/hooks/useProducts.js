@@ -13,7 +13,7 @@ export function useProducts({ section = "", search = "", sort = "newest", featur
     setLoading(true);
 
     const join = section ? "categories!inner(section, name, name_om)" : "categories(section, name, name_om)";
-    let query = supabase.from("products").select(`${COLUMNS}, ${join}`);
+    let query = supabase.from("products").select(`${COLUMNS}, ${join}`).eq("status", "published");
 
     if (section) query = query.eq("categories.section", section);
     if (search) query = query.ilike("name", `%${search}%`);

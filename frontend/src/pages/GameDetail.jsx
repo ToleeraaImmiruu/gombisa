@@ -21,7 +21,7 @@ export default function GameDetail() {
         <p className="mt-2 max-w-prose whitespace-pre-line text-lg leading-relaxed">{game.how_to_play}</p></>)}
       {game.history && (<><h2 className="mt-8 font-display text-2xl font-bold">Where it comes from</h2>
         <p className="mt-2 max-w-prose whitespace-pre-line text-lg leading-relaxed">{game.history}</p></>)}
-      {game.video_url && <p className="mt-8"><a className="btn btn-ghost" href={game.video_url} target="_blank" rel="noreferrer">Watch a video</a></p>}
+      {/^https?:\/\//.test(game.video_url || "") && <p className="mt-8"><a className="btn btn-ghost" href={game.video_url} target="_blank" rel="noreferrer">Watch a video</a></p>}
     </article>
   );
 }

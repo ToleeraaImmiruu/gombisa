@@ -6,7 +6,7 @@ export function useEvents({ upcomingOnly = true, limit = 0 } = {}) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let query = supabase.from("events").select("*").order("starts_at", { ascending: true });
+    let query = supabase.from("events").select("*").eq("status", "published").order("starts_at", { ascending: true });
     if (upcomingOnly) query = query.gte("starts_at", new Date().toISOString());
     if (limit) query = query.limit(limit);
     query.then(({ data }) => { setEvents(data || []); setLoading(false); });
@@ -20,7 +20,7 @@ export function useGames() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    supabase.from("game_guides").select("*").order("created_at", { ascending: false })
+    supabase.from("game_guides").select("*").eq("status", "published").order("created_at", { ascending: false })
       .then(({ data }) => { setGames(data || []); setLoading(false); });
   }, []);
 

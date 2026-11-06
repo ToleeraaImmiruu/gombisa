@@ -1,3 +1,4 @@
+-- RUN THIS AFTER migrations 001-006. Everything below is created as 'published'.
 -- PLACEHOLDER content. Replace with real, community-checked content.
 -- Afaan Oromoo names below are common words but must be reviewed by a native speaker.
 insert into public.categories (section, name, name_om, slug, sort_order) values
@@ -19,14 +20,14 @@ from (values
 ) as v(name, slug, description, cultural_note, price_cents, stock, is_featured, cat_slug)
 join public.categories c on c.slug = v.cat_slug;
 
-insert into public.events (title, slug, description, starts_at, location, city, is_published) values
+insert into public.events (title, slug, description, starts_at, location, city) values
   ('Sample community cultural day', 'sample-cultural-day', 'Replace with a real event.',
-   now() + interval '30 days', 'Community hall', 'Addis Ababa', true),
+   now() + interval '30 days', 'Community hall', 'Addis Ababa'),
   ('Sample cultural market', 'sample-cultural-market', 'Replace with a real event.',
-   now() + interval '60 days', 'Town square', 'Adama', true);
+   now() + interval '60 days', 'Town square', 'Adama');
 
-insert into public.game_guides (name, slug, summary, how_to_play, history, is_published) values
+insert into public.game_guides (name, slug, summary, how_to_play, history) values
   ('Sample traditional game', 'sample-game',
    'Replace with a real game from your community.',
    'Describe the rules step by step.',
-   'Describe where the game comes from.', true);
+   'Describe where the game comes from.');
