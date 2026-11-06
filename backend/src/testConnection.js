@@ -6,12 +6,10 @@ async function testConnection() {
       .from("products")
       .select("*")
       .limit(1);
-
     if (error) {
       console.error("Supabase query failed:", error.message);
       return;
     }
-
     console.log("Supabase database query successful!");
     console.log("Returned records:", data.length);
   } catch (error) {
