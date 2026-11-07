@@ -11,6 +11,7 @@ const requireAdmin = require("./middleware/requireAdmin");
 const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
+app.set("trust proxy", 1); // behind Caddy/a load balancer: use the real visitor address for rate limits
 app.use(helmet());
 app.use(cors({ origin: env.clientUrl }));
 

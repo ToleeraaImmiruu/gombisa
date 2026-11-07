@@ -1,0 +1,28 @@
+# Production: the backend plus Caddy, which gives it free automatic HTTPS.
+# Run from this folder:  docker compose -f docker-compose.prod.yml up -d --build
+services:
+  backend:
+    build: ../backend
+    env_file: ../backend/.env
+    restart: unless-stopped
+    expose:
+      - "4000"
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      API_DOMAIN: ${API_DOMAIN}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - backend
+
+volumes:
+  caddy_data:
+  caddy_config:
