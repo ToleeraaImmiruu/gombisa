@@ -1,8 +1,14 @@
-FROM node:20-alpine AS build
+FROM node:22-alpine AS build
 WORKDIR /app
-COPY package*.json ./
+
+# Copy only package.json (not the lock file made on Windows).
+# Then Linux installs its own correct files for Vite and Tailwind.
+COPY package.json ./
 RUN npm install
+
 COPY . .
+
+# Website settings are baked in when the site is built
 ARG VITE_API_URL
 ARG VITE_SUPABASE_URL
 ARG VITE_SUPABASE_ANON_KEY
